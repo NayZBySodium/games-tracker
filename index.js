@@ -10,7 +10,7 @@ setInterval(() => {
 setInterval(() => {
     console.log(`[INFO]: Updating Warzone statistics, next update at ${getNextUpdate()}`);
     require(`./trackers/warzone.tracker`);
-    console.log(`[INFO]: Updating Rocket League warzone finished!`);
+    console.log(`[INFO]: Updating Warzone League warzone finished!`);
 }, 1000 * 60 * process.env.UPDATE_INTERVAL);
 
 console.log(`[INFO]: App started at ${getHours()}. The stats while be updating all ${process.env.UPDATE_INTERVAL} minutes. (test docker)`);
