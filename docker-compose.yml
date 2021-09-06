@@ -1,0 +1,36 @@
+version: "3"
+
+services: 
+    database:
+        image: mysql:8.0.26
+        hostname: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+            MYSQL_DATABASE: MYSQL_DATABASE
+        volumes:
+            - database:/var/lib/mysql
+
+    grafana:
+        image: grafana/grafana:8.1.2
+        ports:
+            - "3000:3000"
+        volumes:
+            - grafana:/var/lib/grafana
+        depends_on: ["database"]
+
+    games-tracker:
+        image: games-tracker:latest
+        command: sh -c "npm install --production-only && npm run start"
+        environment: 
+            MYSQL_HOST: MYSQL_HOST
+            MYSQL_DATABASE: MYSQL_DATABASE
+            MYSQL_USERNAME: MYSQL_USERNAME
+            MYSQL_PASSWORD: MYSQL_PASSWORD
+            UPDATE_INTERVAL: UPDATE_INTERVAL
+            TZ: TIMEZONE
+        depends_on: ["database"]
+    
+volumes:
+    database:
+    grafana:

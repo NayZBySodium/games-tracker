@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "axios": "^0.21.3",
+    "mysql": "^2.18.1"
+  },
+  "name": "games-tracker",
+  "version": "1.0.0",
+  "description": "An app to get data and send this to a graphic with Grafana.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "NayZ.Sodium",
+  "license": "MIT"
+}
