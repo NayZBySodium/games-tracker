@@ -27,7 +27,6 @@ services:
             MYSQL_DATABASE: MYSQL_DATABASE
             MYSQL_USERNAME: MYSQL_USERNAME
             MYSQL_PASSWORD: MYSQL_PASSWORD
-            UPDATE_INTERVAL: UPDATE_INTERVAL
             TZ: TIMEZONE
         depends_on: ["database"]
     
