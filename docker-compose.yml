@@ -20,7 +20,7 @@ services:
         depends_on: ["database"]
 
     games-tracker:
-        image: games-tracker:latest
+        image: nayzbysodium/games-tracker:latest
         command: sh -c "npm install --production-only && npm run start"
         environment: 
             MYSQL_HOST: MYSQL_HOST
