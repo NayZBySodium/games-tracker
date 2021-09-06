@@ -13,9 +13,7 @@ setInterval(() => {
     console.log(`[INFO]: Updating Rocket League warzone finished!`);
 }, 1000 * 60 * process.env.UPDATE_INTERVAL);
 
-console.log(`[INFO]: App started at ${getHours()}. The stats while be updating all ${process.env.UPDATE_INTERVAL} minutes.`);
-
-console.log("test docker");
+console.log(`[INFO]: App started at ${getHours()}. The stats while be updating all ${process.env.UPDATE_INTERVAL} minutes. (test docker)`);
 
 function getNextUpdate() {
     var d = new Date();
