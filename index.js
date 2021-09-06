@@ -15,6 +15,8 @@ setInterval(() => {
 
 console.log(`[INFO]: App started at ${getHours()}. The stats while be updating all ${process.env.UPDATE_INTERVAL} minutes.`);
 
+console.log("test docker");
+
 function getNextUpdate() {
     var d = new Date();
     var min = d.getMinutes();
