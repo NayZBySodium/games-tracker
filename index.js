@@ -1,35 +1,22 @@
-// connect to mysql
+// se connecter à la BDD MySQL
 require(`./config/database`);
 
+// importer le ficher contenant les utilisateurs à tracker
+const users = require(`./config/users.json`);
+
+// importer les trackers
+const rocketLeagueTracker = require(`./trackers/rocketleague.tracker`);
+const warzoneTracker = require(`./trackers/warzone.tracker`);
+
+// toutes les 5 minutes 
 setInterval(() => {
-    console.log(`[INFO]: Updating Rocket League statistics, next update at ${getNextUpdate()}...`);
-    require(`./trackers/rocketleague.tracker`);
+    console.log(`[INFO]: Updating Rocket League statistics...`);
+    users.rocketLeague.forEach(user => rocketLeagueTracker.updateStatistics(user.platform, user.username));
     console.log(`[INFO]: Updating Rocket League statistics finished!`);
+    console.log(`[INFO]: Updating Warzone statistics...`);
+    users.warzone.forEach(user => warzoneTracker.updateStatistics(user.platform, user.username));
+    console.log(`[INFO]: Updating Warzone statistics finished!`);
 }, 1000 * 60 * 5);
-
-setInterval(() => {
-    console.log(`[INFO]: Updating Warzone statistics, next update at ${getNextUpdate()}`);
-    require(`./trackers/warzone.tracker`);
-    console.log(`[INFO]: Updating Warzone League warzone finished!`);
-}, 1000 * 60 * 5);
-
-console.log(`[INFO]: App started at ${getHours()}. The stats while be updating all ${5} minutes. (test docker)`);
-
-function getNextUpdate() {
-    var d = new Date();
-    var min = d.getMinutes();
-    var hours = d.getHours();
-    var sec = d.getSeconds();
-
-    min = min + 5;
-
-    if (min >= 60) {
-        hours = hours + 1;
-        min = min - 60;
-    }
-
-    return `${hours}:${min}:${sec}`;
-}
 
 function getHours() {
     var d = new Date();
@@ -39,3 +26,5 @@ function getHours() {
 
     return `${hours}:${min}:${sec}`;
 }
+
+console.log(`[INFO]: Games Tracker started at ${getHours()}. The stats while be updating all 5 minutes.`);
