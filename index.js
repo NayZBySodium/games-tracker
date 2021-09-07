@@ -27,4 +27,4 @@ function getHours() {
     return `${hours}:${min}:${sec}`;
 }
 
-console.log(`[INFO]: Games Tracker started at ${getHours()}. The stats while be updating all 5 minutes.`);
+console.log(`[INFO]: Games Tracker started at ${getHours()}. The stats while be updating every 5 minutes.`);
