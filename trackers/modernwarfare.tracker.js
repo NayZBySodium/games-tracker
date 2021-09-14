@@ -7,7 +7,7 @@ db.query("CREATE TABLE IF NOT EXISTS modern_warfare (id INT (11) AUTO_INCREMENT 
 module.exports.updateStatistics = function updateStatistics(platform, username) {
     axios.get(`https://api.tracker.gg/api/v2/modern-warfare/standard/profile/${platform}/${username.replace(`#`, `%23`)}`)
         .then((res) => {
-            let kdRatio = res.data.data.segments.find(segment => segment.type === "overview").stats.kdRatio.value;
+            let kdRatio = res.data.data.segments.find(segment => segment.type === "overview").stats.kDRatio.value;
 
             db.query("INSERT INTO modern_warfare (username, kd_ratio) VALUE ('" + username + "', '" + kdRatio + "')");
 
