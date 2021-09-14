@@ -7,6 +7,17 @@ const users = require(`./config/users.json`);
 // importer les trackers
 const rocketLeagueTracker = require(`./trackers/rocketleague.tracker`);
 const warzoneTracker = require(`./trackers/warzone.tracker`);
+const moderWarfareTracker = require(`./trackers/modernwarfare.tracker`);
+
+console.log(`[INFO]: Updating Rocket League statistics...`);
+users.rocketLeague.forEach(user => rocketLeagueTracker.updateStatistics(user.platform, user.username));
+console.log(`[INFO]: Updating Rocket League statistics finished!`);
+console.log(`[INFO]: Updating Warzone statistics...`);
+users.warzone.forEach(user => warzoneTracker.updateStatistics(user.platform, user.username));
+console.log(`[INFO]: Updating Warzone statistics finished!`);
+console.log(`[INFO]: Updating Modern Warfare statistics...`);
+users.modernwarfare.forEach(user => moderWarfareTracker.updateStatistics(user.platform, user.username));
+console.log(`[INFO]: Updating Modern Warfare statistics finished!`);
 
 // toutes les 5 minutes 
 setInterval(() => {
@@ -16,6 +27,9 @@ setInterval(() => {
     console.log(`[INFO]: Updating Warzone statistics...`);
     users.warzone.forEach(user => warzoneTracker.updateStatistics(user.platform, user.username));
     console.log(`[INFO]: Updating Warzone statistics finished!`);
+    console.log(`[INFO]: Updating Modern Warfare statistics...`);
+    users.modernwarfare.forEach(user => moderWarfareTracker.updateStatistics(user.platform, user.username));
+    console.log(`[INFO]: Updating Modern Warfare statistics finished!`);
 }, 1000 * 60 * 5);
 
 function getHours() {

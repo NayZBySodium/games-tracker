@@ -35,6 +35,10 @@
         {
             "platform": "epic",
             "username": "Ry_Pyrus280"
+        },
+        {
+            "platform": "psn",
+            "username": "morgan_cld377"
         }
     ],
     "warzone": [
@@ -60,6 +64,20 @@
         },
         {
             "username": "Zantarya#2672",
+            "platform": "battlenet"
+        }
+    ],
+    "modernwarfare": [
+        {
+            "username": "morgan_cld",
+            "platform": "psn"
+        },
+        {
+            "username": "BlackDevil36e",
+            "platform": "psn"
+        },
+        {
+            "username": "NayZBySodium#2808",
             "platform": "battlenet"
         }
     ]
